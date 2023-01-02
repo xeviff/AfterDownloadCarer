@@ -80,7 +80,7 @@ public abstract class JobHandler implements Runnable {
             setJobStateWorkingOrSleep();
             getElementHandler().handle();
             jobFile.markDone();
-        } catch (TooMuchTriesException | IOException | IncorrectWorkingReferencesException | NoElementFoundException e) {
+        } catch (Exception e) {
             error=true;
             logger.nLog("something wrong: {0}", e.getMessage());
             jobFile.driveBack();
